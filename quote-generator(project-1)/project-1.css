@@ -1,0 +1,73 @@
+/* general styling */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+/* now let's style */
+body{
+    background-image: url("project-1.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height:500px;
+    justify-content: center;
+}
+.container
+{
+    border:1px solid balck;
+    border-radius:3px;
+}
+
+.header
+{
+    border:1px solid grey;
+    border-radius: 5px;
+    margin:10px 100px;
+    padding:8px;
+    background-color:#0d0c0c;
+    color:white;
+}
+
+.main-content
+{
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    border-radius:10px;
+    margin-top:20px;
+    height:300px;
+    width:550px;
+}
+.text
+{
+    font-size:20px;
+    padding:40px;
+}
+.person
+{
+    margin-top:30px;
+    color:red;
+    font-size: 25px;
+}
+.button
+{
+    margin-top:10px;
+}
+.newquote
+{
+    padding:7px 12px;
+    font-weight:bold;
+    border:1px solid black;
+    color:white;
+    background-color:#111010;
+    border-radius: 3px;
+}
+.newquote:active            /* similar to a hover effect */
+{
+    background-color: lightblue;
+}

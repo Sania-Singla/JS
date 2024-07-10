@@ -1,0 +1,63 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-image: url("project-4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container
+{
+    background-color:white;
+    border-radius:5px;
+    padding:15px;
+    width:250px;
+    box-shadow: 0 0 3px black;
+}
+#counting
+{
+    text-align: center;
+    font-size: 48px;
+}
+
+.buttons
+{
+    margin-top:15px ;
+    text-align: center;
+}
+
+button{
+    border:none;
+    margin:0 10px;
+}
+
+button i{
+    font-size: 23px;
+    padding:10px;
+    color:white;
+    border-radius: 3px;
+    width:42px;
+}
+#reset
+{
+    background-color: red;
+}
+#start
+{
+    background-color: green;
+}
+#pause
+{
+    background-color:orange;
+}
+
