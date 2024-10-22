@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Find Leads</title>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="form-div">
+                <h2><pre> Add a New Lead </pre></h2>
+                <form id="form">
+                    <div class="input-div">
+                        <label for="fullname">Fullname :</label>
+                        <input type="text" id="fullname" placeholder="Enter full name" required />
+                    </div>
+
+                    <div class="input-div">
+                        <label for="username">Username :</label>
+                        <input type="text" id="username" placeholder="Enter user name" required />
+                    </div>
+
+                    <div class="input-div">
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" placeholder="Enter email" required />
+                    </div>
+
+                    <div class="input-div">
+                        <label for="password">Password :</label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create password"
+                            required
+                        />
+                    </div>
+
+                    <div class="input-div">
+                        <label for="country">Country :</label>
+                        <div id="select-div">
+                            <img id="flag-image" />
+                            <select name="country" id="country" required></select>
+                        </div>
+                    </div>
+
+                    <div id="btn-div">
+                        <button id="reset-btn" type="reset">Cancel</button>
+                        <button id="submit-btn" type="submit">Add Lead</button>
+                    </div>
+                </form>
+            </div>
+
+            <hr />
+
+            <div id="leads-div">
+                <h2><pre> Saved Leads </pre></h2>
+                <div id="leads"></div>
+                <button id="clear-all-btn">Clear All</button>
+            </div>
+        </div>
+
+        <script type="module" src="script.js"></script>
+    </body>
+</html>
