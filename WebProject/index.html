@@ -9,15 +9,21 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet"
         />
+        <!-- CSS FILE ATTACHMENT -->
         <link rel="stylesheet" href="style.css" />
-        <title>Find Leads</title>
+        <title>Add Leads</title>
     </head>
     <body>
         <div id="main-container">
+            <!-- FORM DIV -->
             <div id="form-div">
+                <!-- HEADER -->
                 <h2><pre> Add a New Lead </pre></h2>
+
+                <!-- FORM -->
                 <form id="form">
                     <div class="two-fields-div">
+                        <!-- INPUT - USERNAME -->
                         <div class="input-div">
                             <div class="label-div">
                                 <label for="username">Username :</label>
@@ -33,6 +39,7 @@
                             />
                         </div>
 
+                        <!-- INPUT - FULLNAME -->
                         <div class="input-div">
                             <div class="label-div">
                                 <label for="fullname">Fullname :</label>
@@ -49,6 +56,7 @@
                     </div>
 
                     <div class="two-fields-div">
+                        <!-- INPUT - EMAIL -->
                         <div class="input-div">
                             <div class="label-div">
                                 <label for="email">Email :</label>
@@ -63,6 +71,7 @@
                             />
                         </div>
 
+                        <!-- INPUT - PASSWORD -->
                         <div class="input-div">
                             <div class="label-div">
                                 <label for="password">Password :</label>
@@ -79,6 +88,7 @@
                     </div>
 
                     <div class="two-fields-div">
+                        <!-- INPUT - SEX -->
                         <div class="input-div">
                             <label>Sex :</label>
                             <div id="radio-input-div">
@@ -115,6 +125,7 @@
                             </div>
                         </div>
 
+                        <!-- SELECT - COUNTRY -->
                         <div class="input-div">
                             <label for="country">Country :</label>
                             <div id="select-div">
@@ -124,6 +135,7 @@
                         </div>
                     </div>
 
+                    <!-- TEXTAREA - REMARKS -->
                     <div class="remarks-div">
                         <div class="label-div">
                             <label for="remarks">Remarks :</label>
@@ -132,6 +144,7 @@
                         <textarea name="remarks" id="remarks" cols="5" rows="3"></textarea>
                     </div>
 
+                    <!-- SUBMIT & RESET BUTTON -->
                     <div id="btn-div">
                         <button id="reset-btn" type="reset">Cancel</button>
                         <button id="submit-btn" type="submit">Add Lead</button>
@@ -141,6 +154,7 @@
 
             <hr />
 
+            <!-- OUTPUT OR LEADS DIV-->
             <div id="leads-div">
                 <pre> Saved Leads </pre>
                 <div id="leads"></div>
@@ -148,6 +162,7 @@
             </div>
         </div>
 
+        <!-- JS SCRIPT ATTACHMENT -->
         <script type="module" src="script.js"></script>
     </body>
 </html>

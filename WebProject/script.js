@@ -1,31 +1,35 @@
+// IMPORTING OTHER JS HELPING SCRIPTS
 import { icons } from "./icons.js";
+
+// SELECTING THE ELEMENTS
+let clearAllBtn = document.getElementById("clear-all-btn");
+let submitBtn = document.getElementById("submit-btn");
+let form = document.getElementById("form");
 
 let fullname = document.getElementById("fullname");
 let username = document.getElementById("username");
 let password = document.getElementById("password");
-let email = document.getElementById("email");
 let remarks = document.getElementById("remarks");
+let email = document.getElementById("email");
 
 let fullnameError = document.getElementById("fullname-error");
 let usernameError = document.getElementById("username-error");
 let passwordError = document.getElementById("password-error");
-let emailError = document.getElementById("email-error");
 let remarksError = document.getElementById("remarks-error");
-
+let emailError = document.getElementById("email-error");
 let genderRadios = document.getElementsByName("gender");
-let clearAllBtn = document.getElementById("clear-all-btn");
-
-let countryList = [];
 let countrySelect = document.getElementById("country");
+
 let flagImage = document.getElementById("flag-image");
-let resetBtn = document.getElementById("reset-btn");
-let submitBtn = document.getElementById("submit-btn");
-let form = document.getElementById("form");
 let leadsDiv = document.getElementById("leads");
+
+// VARIABLE DECLARATION
 let totalLeads = [];
+let countryList = [];
 
 // HELPER FUNCTIONS (UTILS)
 
+// fetching the country list via rest api
 async function fetchCountryList() {
     try {
         const res = await fetch("https://countriesnow.space/api/v0.1/countries/flag/images", {
@@ -41,6 +45,7 @@ async function fetchCountryList() {
     }
 }
 
+// updating the flag according to the select country from the given options
 function updateFlag() {
     const selectedCountry = countryList.find(
         (countryObject) => countryObject.name === countrySelect.value
@@ -49,6 +54,7 @@ function updateFlag() {
     flagImage.setAttribute("alt", `${selectedCountry.name} flag`);
 }
 
+// reseting the form inputs
 function resetValuesAndFlag() {
     fullname.value = "";
     username.value = "";
@@ -60,6 +66,7 @@ function resetValuesAndFlag() {
     updateFlag();
 }
 
+// checking for any errors in the inputs
 function hasErrors() {
     if (
         fullnameError.innerText ||
@@ -74,6 +81,16 @@ function hasErrors() {
     }
 }
 
+// setting errors = null
+function resetError() {
+    fullnameError.innerText = "";
+    usernameError.innerText = "";
+    passwordError.innerText = "";
+    remarksError.innerText = "";
+    emailError.innerText = "";
+}
+
+// appending the country options to the dropdown
 function addCountryList() {
     countryList.forEach((countryObject) => {
         const { name } = countryObject;
@@ -88,6 +105,7 @@ function addCountryList() {
     updateFlag();
 }
 
+// generating the lead div
 function setLeadHTMLString(flag, country, email, username, fullname, gender) {
     return `
             <img src="${flag}" alt="${country} flag"/>
@@ -102,6 +120,7 @@ function setLeadHTMLString(flag, country, email, username, fullname, gender) {
 
 // EVENT LISTENERS
 
+// initial load event listener
 window.addEventListener("load", async (e) => {
     countryList = await fetchCountryList();
     addCountryList();
@@ -129,17 +148,22 @@ window.addEventListener("load", async (e) => {
     }
 });
 
+// onChange()
 countrySelect.addEventListener("change", updateFlag);
 
-resetBtn.addEventListener("click", (e) => {
+// onReset()
+form.addEventListener("reset", (e) => {
     e.preventDefault();
     resetValuesAndFlag();
+    resetError();
 });
 
+// onMouseOver()
 submitBtn.addEventListener("mouseover", (e) => {
     submitBtn.disabled = hasErrors();
 });
 
+// onClick()
 clearAllBtn.addEventListener("click", (e) => {
     localStorage.removeItem("leads");
     while (leadsDiv.firstChild) {
@@ -147,11 +171,11 @@ clearAllBtn.addEventListener("click", (e) => {
     }
 });
 
+// onSubmit()
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (hasErrors()) {
-        return;
-    } else {
+    if (hasErrors()) return;
+    else {
         let gender;
         genderRadios.forEach((radio) => {
             if (radio.checked) {
@@ -193,6 +217,7 @@ form.addEventListener("submit", (e) => {
 
 // DATA VALIDATION HANDLERS
 
+// data validation via regex
 function validate(type, value) {
     if (value && type) {
         switch (type) {
@@ -208,7 +233,7 @@ function validate(type, value) {
                     : false;
             }
             case "password": {
-                return value.length > 8 || value.length < 12 ? true : false;
+                return value.length > 8 && value.length < 12 ? true : false;
             }
             case "remarks": {
                 return value.length <= 256 ? true : false;
@@ -220,6 +245,7 @@ function validate(type, value) {
     }
 }
 
+// onBlur()
 fullname.addEventListener("blur", (e) => {
     if (fullname.value && !validate("fullname", fullname.value)) {
         fullnameError.innerText = `only letters are allowed.`;
